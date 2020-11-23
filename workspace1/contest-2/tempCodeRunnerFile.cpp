@@ -1,2 +1,1 @@
-  // while(ans <= T){
-    // }
+cout << ans << endl;

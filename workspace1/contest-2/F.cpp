@@ -27,9 +27,13 @@ int main(){
             cout << sum/N << endl;
             sort(time.begin(), time.end());
         for(int i = 0; i < N; ++i){
-            ans += time[i];
-            cout << diff[i] << endl;
             if (ans <= T){
+                ans += time[i];
+                if(ans＞= T){
+                    ans -= time[i];
+                    break;
+                }
+                    // cout << ans << endl;
             }else{
                 break;
             }
