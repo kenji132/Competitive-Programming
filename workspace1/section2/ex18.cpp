@@ -12,12 +12,17 @@ int main() {
     // ここにプログラムを追記
     // (ここで"試合結果の表"の2次元配列を宣言)
 
-    vector<vector<string>> data(N, vector<string>(N,"-"));
+    vector<vector<char>> data(N, vector<char>(N,'-'));
+
+    for (int i = 0; i < M; i++){
+        A.at(i)--; B.at(i)--;
+        data.at(A.at(i)).at(B.at(i))= 'o';
+        data.at(B.at(i)).at(A.at(i))= 'x';
+    }
 
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
-            if()
-            cout << data[i][j] << " ";
+            cout << data[i][j] << ' ';
         }
         cout << endl;
     }
