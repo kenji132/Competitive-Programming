@@ -35,10 +35,6 @@ struct Clock{
         diff_second = diff_second % 3600;
         int diff_minute = diff_second / 60;
         diff_second = diff_second % 60;
-        
-
-        
-
 
         second += diff_second;
         if(second >=60){
@@ -64,21 +60,8 @@ struct Clock{
         }else if(hour < 0){
             hour += 24;
         }
-
-
-
-
-
-
-
-
-        
     }
 };
-
-
-
-
 // -------------------
 // ここから先は変更しない
 // -------------------
