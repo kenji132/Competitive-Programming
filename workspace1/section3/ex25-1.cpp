@@ -13,7 +13,6 @@ int main(){
 
     for (int tmp = 0; tmp < (1 << 20); tmp++ ){
         bitset<20> s(tmp);
-
         int sum = 0;
         for (int i = 0; i < N; ++i){
             if(s.test(i)){
