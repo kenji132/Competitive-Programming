@@ -13,17 +13,13 @@ int main(){
         cin >> a >> b;
         data1.push_back(make_pair(a,b));
     }
-    for(int j = 1; j < data1[m-1].second + 1 ; j++){
+    for(int j = 1; j < t; j++){
         for(int i = 0; i < m; i++){
             if(j <= data1[i].first){
                 bat -= 1;
                 break;
             }else if(j > data1[i].first && j <= data1[i].second){
-                if(bat == n){
-
-                }else{
-                    bat += 1;
-                }
+                bat += 1;
                 break;
             }
         }
