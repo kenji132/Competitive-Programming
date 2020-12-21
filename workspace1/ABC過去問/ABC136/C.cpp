@@ -11,13 +11,14 @@ int main(){
     }
 
     int t=0;
-    for(int i = 0; i < n; ++i){
-        if(h[i] > h[i+1]){
-            h[i]--;
+    h[0]--;
+    for(int i = 0; i < n-1; ++i){
+        if(h[i] < h[i+1]){
+            h[i+1]--;
         }
     }
 
-    for(int i = 0; i < n; ++i){
+    for(int i = 0; i < n-1; ++i){
         if(h[i] > h[i+1]){
             t = 1;
         }
