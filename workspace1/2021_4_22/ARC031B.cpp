@@ -5,7 +5,7 @@ const int dx[4] ={1, 0, -1, 0};
 const int dy[4] ={0, 1, 0, -1};
 
 bool seen[10][10];
-void dfs(int h, int w, vector<string> F){
+void dfs(int h, int w, vector<string> F){ //つながってるところを全てseenで印付ける
   seen[h][w] = true;
 
   for(int dir = 0; dir < 4; dir++){
@@ -33,6 +33,7 @@ int main(){
       for(int a = 0; a < 10; ++a){
         for(int b = 0; b < 10; ++b){
           if(field2[a][b] == 'o' && !seen[a][b]) ok = false;
+          //oだが、seenで印付けされてないところがある場合を除く
         }
       }
       if (ok) {
