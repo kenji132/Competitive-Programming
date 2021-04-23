@@ -1,50 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int dx[4] = {1, 0, -1, 0};
-const int dy[4] = {0, 1, 0, -1};
+int W, H;
+int f[55][55];
+const int dx[] = {-1, -1, -1, +0, +0, +1, +1, +1};
+const int dy[] = {-1, +0, +1, -1, +1, -1, +0, +1};
 
-int H,W;
-vector<string> field;
-int cnt = 0;
-bool seen[100][100];
-bool ok;
-void dfs(int h, int w) {
-  for(int dir = 0; dir < 4; dir++){
-    int nw = w + dx[dir];
-    int nh = h + dy[dir];
-    if(nh < 0 || nw < 0 || nh >= H || nw >= W) continue;
-    if(field[nh][nw] == '0'){
-      cnt++;
-      continue;
+void dfs(int x, int y)
+{
+    f[y][x] = 0;
+    for (int i = 0; i < 8; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        if (0 <= nx && nx < W && 0 <= ny && ny < H &&
+            f[ny][nx] == 1) {
+            dfs(nx, ny);
+        }
     }
-    if(seen[nh][nw]){
-      ok = true;
-    }else{
-      seen[h][w] = true;
-      dfs(nh, nw);
-    }
-  }
 }
 
 int main(){
-  cin >> W >> H;
-  for(int i = 0; i < H; i++){
-    string str;
-    cin >> str;
-    field.push_back(str);
-  }
-
-  int ans = 0;
-  for(int i = 0; i < H; i++){
-    for(int j = 0; j < W; j++){
-      ok = false;
-      dfs(i, j);
-      if(ok){
-        ans++;
+  while (cin >> W >> H, W) {
+    for (int i = 0; i < H; i++) {
+      for (int j = 0; j < W; j++) {
+        cin >> f[i][j];
       }
     }
+
+    int res = 0;
+    for (int i = 0; i < H; i++) {
+      for (int j = 0; j < W; j++) {
+        if (f[i][j] == 1) {
+          res++;
+          dfs(j, i);
+        }
+      }
+    }
+    cout << res << endl;
   }
-  cout << ans << endl;
   return 0;
 }
