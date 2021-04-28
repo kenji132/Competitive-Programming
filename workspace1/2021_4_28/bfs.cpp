@@ -30,7 +30,5 @@ int main(){
     }
   }
 
-
   for(int v = 1; v < N; v++) cout << v << ": " << dist[v] << endl;
-
 }
